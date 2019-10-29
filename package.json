@@ -1,0 +1,41 @@
+{
+  "name": "@nex/check-package-version",
+  "version": "2.0.2",
+  "dependencies": {
+    "chalk": "2.4.1"
+  },
+  "bin": {
+    "check-version-not-published": "./bin/check-version-not-published",
+    "check-version-in-changelog": "./bin/check-version-in-changelog",
+    "check-package-version": "./bin/check-package-version"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "eslint index.js lib test",
+    "test": "jest",
+    "test-acceptance": "jest --config=jest.acceptance.config.js",
+    "test-ci": "npm run lint && npm run test && npm run test-acceptance",
+    "check-package-version": "cross-env node bin/check-package-version"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "cross-env": "5.2.0",
+    "eslint": "5.5.0",
+    "eslint-config-prettier": "2.10.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "husky": "0.14.3",
+    "jest": "^23.6.0",
+    "lint-staged": "7.2.2",
+    "prettier": "1.14.2",
+    "sinon": "^6.3.2"
+  },
+  "engines": {
+    "node": ">8.0.0",
+    "npm": ">6.0.0"
+  },
+  "license": "MIT",
+  "repository": "https://gitlab.com/OrangeX/frontend/tools/check-package-version"
+}
